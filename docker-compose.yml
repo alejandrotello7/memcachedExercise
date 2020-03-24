@@ -1,0 +1,21 @@
+version: '3'
+services:
+  server:
+    build:
+      ./Container1
+    ports:
+      - "10029:22"
+      - "11211:11211"
+    volumes:
+    - "myshare:/root/sharer"
+
+  client:
+    build:
+     ./Container2
+    ports:
+      - "10022:22"
+    volumes:
+    - "myshare:/root/sharer"
+
+volumes:
+  myshare:
